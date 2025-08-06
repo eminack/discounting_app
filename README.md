@@ -1,43 +1,24 @@
-# Discounting App
+# README
 
-A Ruby application for managing discounts.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Requirements
+Things you may want to cover:
 
-- Ruby 3.3.0
-- Bundler
+* Ruby version
 
-## Setup
+* System dependencies
 
-1. Install Ruby 3.3.0 (recommended to use a version manager like rbenv or rvm)
-2. Install dependencies:
-   ```bash
-   bundle install
-   ```
+* Configuration
 
-## Development
+* Database creation
 
-- Run tests:
-  ```bash
-  bundle exec rake spec
-  ```
+* Database initialization
 
-- Run linter:
-  ```bash
-  bundle exec rake rubocop
-  ```
+* How to run the test suite
 
-- Run both tests and linter:
-  ```bash
-  bundle exec rake
-  ```
+* Services (job queues, cache servers, search engines, etc.)
 
-## Project Structure
+* Deployment instructions
 
-- `lib/` - Application source code
-- `spec/` - Test files
-- `bin/` - Executable scripts
-
-## License
-
-This project is licensed under the MIT License.
+* ...
