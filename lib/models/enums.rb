@@ -1,64 +1,51 @@
 module DiscountingApp
   module Enums
+    # Base enum module with common functionality
+    module EnumBase
+      def values
+        constants.map { |c| const_get(c) }
+      end
+
+      def valid?(value)
+        values.include?(value)
+      end
+    end
+
     # Brand tier classification
     module BrandTier
-      PREMIUM = 'premium'
-      REGULAR = 'regular'
-      BUDGET = 'budget'
+      extend EnumBase
 
-      def self.all
-        [PREMIUM, REGULAR, BUDGET]
-      end
-
-      def self.valid?(tier)
-        all.include?(tier.to_s.downcase)
-      end
+      PREMIUM = :premium
+      REGULAR = :regular
+      BUDGET = :budget
     end
 
     # Payment methods
     module PaymentMethod
-      CARD = 'card'
-      UPI = 'upi'
-      NETBANKING = 'netbanking'
-      WALLET = 'wallet'
+      extend EnumBase
 
-      def self.all
-        [CARD, UPI, NETBANKING, WALLET]
-      end
-
-      def self.valid?(method)
-        all.include?(method.to_s.downcase)
-      end
+      CARD = :card
+      UPI = :upi
+      NETBANKING = :netbanking
+      WALLET = :wallet
     end
 
     # Card types
     module CardType
-      CREDIT = 'credit'
-      DEBIT = 'debit'
+      extend EnumBase
 
-      def self.all
-        [CREDIT, DEBIT]
-      end
-
-      def self.valid?(type)
-        all.include?(type.to_s.downcase)
-      end
+      CREDIT = :credit
+      DEBIT = :debit
     end
 
     # Customer tiers
     module CustomerTier
-      PLATINUM = 'platinum'
-      GOLD = 'gold'
-      SILVER = 'silver'
-      REGULAR = 'regular'
+      extend EnumBase
 
-      def self.all
-        [PLATINUM, GOLD, SILVER, REGULAR]
-      end
-
-      def self.valid?(tier)
-        all.include?(tier.to_s.downcase)
-      end
+      PLATINUM = :platinum
+      GOLD = :gold
+      SILVER = :silver
+      REGULAR = :regular
     end
   end
 end
