@@ -3,12 +3,12 @@ require 'bigdecimal'
 class Product
   include ActiveModel::Model
   
-  attr_accessor :id, :brand, :brand_tier, :category, :base_price, :current_price
+  attr_accessor :id, :brand, :brand_tier, :category, :price, :current_price
 
   def initialize(attributes = {})
     super
-    self.base_price = BigDecimal(attributes[:base_price].to_s) if attributes[:base_price]
-    self.current_price ||= base_price
+    self.price = BigDecimal(attributes[:price].to_s) if attributes[:price]
+    self.current_price = price
     validate!
   end
 

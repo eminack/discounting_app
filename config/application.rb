@@ -34,5 +34,16 @@ module DiscountingApp
       # Make enums easily accessible
       Object.const_set(:Enums, DiscountingApp::Enums)
     end
+
+    # Load all interfaces first
+    config.autoload_paths << Rails.root.join('app')
+    config.eager_load_paths << Rails.root.join('app')
+
+    # Ensure interfaces are loaded before other files
+    initializer :load_interfaces, before: :set_autoload_paths do |app|
+      Dir[Rails.root.join('app', 'services', 'interfaces', '*.rb')].each do |interface_file|
+        require interface_file
+      end
+    end
   end
 end
